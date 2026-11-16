@@ -1,0 +1,106 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  body {
+    @apply bg-[#050811] text-slate-100 font-sans antialiased overflow-x-hidden;
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #040711;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #141f38;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00d2ff;
+  }
+}
+
+/* Glassmorphic Cards & Panels */
+.glass-panel {
+  background: rgba(10, 16, 31, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+}
+
+.glass-card {
+  background: rgba(12, 19, 36, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 10px 28px -8px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 16px 36px -10px rgba(0, 210, 255, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-input {
+  background: rgba(6, 10, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  border-color: #00d2ff;
+  box-shadow: 0 0 14px rgba(0, 210, 255, 0.25);
+  outline: none;
+}
+
+/* React Flow canvas background customization */
+.react-flow__background {
+  background-color: transparent !important;
+}
+
+.react-flow__handle {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50% !important;
+  background-color: #00d2ff !important;
+  border: 2px solid #050811 !important;
+  box-shadow: 0 0 6px rgba(0, 210, 255, 0.7) !important;
+}
+
+.react-flow__edge-path {
+  stroke-width: 2.2;
+  stroke: #3b82f6;
+  filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.35));
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #00f5d4 !important;
+  stroke-width: 3 !important;
+  filter: drop-shadow(0 0 8px rgba(0, 245, 212, 0.7)) !important;
+}
+
+.react-flow__edge.active-anim .react-flow__edge-path {
+  stroke: #00f5d4 !important;
+  stroke-width: 3.2 !important;
+  animation: dash 1s linear infinite;
+  stroke-dasharray: 8;
+  filter: drop-shadow(0 0 10px rgba(0, 245, 212, 0.85)) !important;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
